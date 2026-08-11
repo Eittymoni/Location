@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Fresh Green Theme -->
+    <color name="greenPrimary">#2E7D32</color>      <!-- Forest Green -->
+    <color name="greenPrimaryDark">#1B5E20</color>  <!-- Deep Forest Green -->
+    <color name="greenLight">#E8F5E9</color>        <!-- Opaque Light Mint -->
+    <color name="greenAccent">#4CAF50</color>       <!-- Vibrant Green -->
+    <color name="textDark">#1E293B</color>          <!-- Dark Slate Gray (High Legibility) -->
+</resources>

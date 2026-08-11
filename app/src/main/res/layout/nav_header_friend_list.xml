@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/greenPrimary"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_person"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:tint="@color/white"
+        android:contentDescription="Profile icon"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/tvNavName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Name"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvNavEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="your@email.com"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/white"
+        android:alpha="0.3"/>
+
+    <TextView
+        android:id="@+id/tvNavLat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lat: 0.0"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvNavLng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Lng: 0.0"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+</LinearLayout>

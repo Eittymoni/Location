@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FriendListActivity">
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/greenPrimary"
+            app:title="Dashboard"
+            app:titleTextColor="@color/white" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/greenLight"
+            android:paddingHorizontal="16dp">
+
+            <!-- Friend List Header -->
+            <TextView
+                android:id="@+id/tvFriendListHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Friend List"
+                android:textColor="@color/greenPrimaryDark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- RecyclerView for Friend List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/userRecycler"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:clipToPadding="false"
+                android:paddingBottom="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvFriendListHeader"
+                tools:listitem="@layout/item_user" />
+
+            <!-- Floating Action Buttons -->
+            <LinearLayout
+                android:id="@+id/fabContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="vertical"
+                android:paddingEnd="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:contentDescription="Profile"
+                    android:src="@drawable/ic_person"
+                    android:visibility="gone"
+                    app:backgroundTint="@color/greenPrimary"
+                    app:fabSize="mini"
+                    app:rippleColor="@color/greenPrimaryDark"
+                    app:tint="@color/white" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabShowMap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:contentDescription="Map"
+                    android:src="@drawable/ic_map"
+                    android:visibility="gone"
+                    app:backgroundTint="@color/greenPrimary"
+                    app:fabSize="mini"
+                    app:rippleColor="@color/greenPrimaryDark"
+                    app:tint="@color/white" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:contentDescription="Logout"
+                    android:src="@drawable/ic_logout"
+                    android:visibility="gone"
+                    app:backgroundTint="@color/greenPrimary"
+                    app:fabSize="mini"
+                    app:rippleColor="@color/greenPrimaryDark"
+                    app:tint="@color/white" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="34dp"
+                    android:contentDescription="Menu"
+                    android:src="@drawable/ic_dashboard"
+                    app:backgroundTint="@color/greenPrimaryDark"
+                    app:elevation="10dp"
+                    app:rippleColor="@color/greenLight"
+                    app:tint="@color/white" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header_friend_list"
+        app:menu="@menu/nav_menu_friend_list" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

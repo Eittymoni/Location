@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "151539922116",
+    "project_id": "location-app-e0bc5",
+    "storage_bucket": "location-app-e0bc5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151539922116:android:16842ff9b90c021d0b4591",
+        "android_client_info": {
+          "package_name": "com.zubayer.location_exam"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy4K2n5DUHKKzx6-POgJ2gEZHOokIYc8g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151539922116:android:96065be59909ec6f0b4591",
+        "android_client_info": {
+          "package_name": "com.zubayer.locationapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy4K2n5DUHKKzx6-POgJ2gEZHOokIYc8g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
