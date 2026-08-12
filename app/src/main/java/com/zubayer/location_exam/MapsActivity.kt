@@ -13,8 +13,10 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.zubayer.location_exam.databinding.ActivityMapsBinding
 import com.zubayer.location_exam.repository.UserRepository
@@ -71,6 +73,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback{
     }
 
     private fun observeData() {
+        val currentUid = FirebaseAuth.getInstance().currentUser?.uid
 
         viewModel.user.observe(this) { user ->
 
@@ -82,10 +85,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback{
 
                     map.clear()
 
+                    val markerColor = if (it.userId == currentUid) {
+                        BitmapDescriptorFactory.HUE_GREEN
+                    } else {
+                        BitmapDescriptorFactory.HUE_RED
+                    }
+
                     map.addMarker(
                         MarkerOptions()
                             .position(pos)
                             .title(it.username.ifEmpty { it.email })
+                            .icon(BitmapDescriptorFactory.defaultMarker(markerColor))
                     )
 
                     map.moveCamera(
@@ -103,6 +113,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback{
 
                 if (it.latitude != null && it.longitude != null) {
 
+                    val markerColor = if (it.userId == currentUid) {
+                        BitmapDescriptorFactory.HUE_GREEN
+                    } else {
+                        BitmapDescriptorFactory.HUE_RED
+                    }
+
                     map.addMarker(
                         MarkerOptions()
                             .position(
@@ -112,6 +128,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback{
                                 )
                             )
                             .title(it.username.ifEmpty { it.email })
+                            .icon(BitmapDescriptorFactory.defaultMarker(markerColor))
                     )
                 }
             }

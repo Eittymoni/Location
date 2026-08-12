@@ -1,50 +1,31 @@
-# Move Profile Header to a Navigation Drawer in FriendListActivity
+# Move Loading State to Buttons in AuthActivity
 
-The user wants to move the "My Profile" section from the top of the `FriendListActivity` into a navigation drawer. This will clean up the dashboard and provide a standard navigation pattern for profile-related info.
-
-## User Review Required
-
-> [!IMPORTANT]
-> I will be adding a `Toolbar` to the `FriendListActivity` to provide a "hamburger" menu button to open the drawer. This will change the top UI of the screen slightly.
+The user wants to remove the central `ProgressBar` and instead show the loading state directly on the "Sign In" and "Sign Up" buttons.
 
 ## Proposed Changes
 
-### Build Configuration
+### UI & Layout
 
-#### [MODIFY] [libs.versions.toml](file:///D:/DIPTY/location_exam/gradle/libs.versions.toml)
-- Add `drawerlayout` version and library.
+#### [MODIFY] [activity_auth.xml](file:///D:/DIPTY/location_exam/app/src/main/res/layout/activity_auth.xml)
+- Remove the `ProgressBar` element from the layout.
 
-#### [MODIFY] [app/build.gradle.kts](file:///D:/DIPTY/location_exam/app/build.gradle.kts)
-- Add `androidx.drawerlayout` dependency.
+### Activity Logic
 
-### Resources & Layouts
-
-#### [NEW] [nav_header_friend_list.xml](file:///D:/DIPTY/location_exam/app/src/main/res/layout/nav_header_friend_list.xml)
-- Create a layout for the drawer header containing the user's name, email, and current location (extracted from the current CardView).
-
-#### [MODIFY] [activity_friend_list.xml](file:///D:/DIPTY/location_exam/app/src/main/res/layout/activity_friend_list.xml)
-- Wrap the existing `ConstraintLayout` in a `DrawerLayout`.
-- Add a `Toolbar` at the top of the content area.
-- Remove the `layoutMyProfile` CardView from the content area.
-- Add a `NavigationView` with the new header.
-
-### Code
-
-#### [MODIFY] [FriendListActivity.kt](file:///D:/DIPTY/location_exam/app/src/main/java/com/zubayer/location_exam/FriendListActivity.kt)
-- Initialize the `DrawerLayout` and `Toolbar`.
-- Set up `ActionBarDrawerToggle`.
-- Update `loadCurrentUser` to bind data to the `NavigationView` header instead of the old CardView.
-- Remove redundant click listeners for the old CardView.
+#### [MODIFY] [AuthActivity.kt](file:///D:/DIPTY/location_exam/app/src/main/java/com/zubayer/location_exam/AuthActivity.kt)
+- Update the `observeViewModel` function to handle the `loading` state by:
+    - Changing the text of `btnSubmitSignIn` to "Signing In..." and `btnSubmitSignUp` to "Signing Up..." when loading is active.
+    - Restoring the original text ("Sign In" and "Sign Up") when loading is finished.
+    - Continuing to disable the buttons while loading to prevent multiple submissions.
 
 ## Verification Plan
 
 ### Automated Tests
 - Run Gradle Sync.
-- Verify the build completes successfully.
+- Verify that `AuthActivity.kt` compiles successfully.
 
 ### Manual Verification
-- Open the app and navigate to the Friend List.
-- Verify the hamburger menu is visible in the toolbar.
-- Click the hamburger menu to open the drawer.
-- Verify the profile information (Name, Email, Location) is correctly displayed in the drawer header.
-- Verify the drawer can be closed.
+1. Open the app and navigate to the Sign In screen.
+2. Enter credentials and click "Sign In".
+3. Verify that the button text changes to "Signing In..." and the central progress bar is gone.
+4. Verify that once the login succeeds or fails, the button text returns to "Sign In".
+5. Repeat for the Sign Up screen.

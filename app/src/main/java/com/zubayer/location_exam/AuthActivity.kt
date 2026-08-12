@@ -93,8 +93,8 @@ class AuthActivity : AppCompatActivity() {
             val email = binding.etSignUpEmail.text.toString().trim()
             val password = binding.etSignUpPassword.text.toString().trim()
 
-            if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please fill email and password", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -105,7 +105,13 @@ class AuthActivity : AppCompatActivity() {
     // Observe login and registration LiveData results
     private fun observeViewModel() {
         viewModel.loading.observe(this) { isLoading ->
-            binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+            if (isLoading) {
+                binding.btnSubmitSignIn.text = "Signing In..."
+                binding.btnSubmitSignUp.text = "Signing Up..."
+            } else {
+                binding.btnSubmitSignIn.text = "Sign In"
+                binding.btnSubmitSignUp.text = "Sign Up"
+            }
             binding.btnSubmitSignIn.isEnabled = !isLoading
             binding.btnSubmitSignUp.isEnabled = !isLoading
         }

@@ -25,10 +25,12 @@ class AuthRepository(
             val userId = result.user?.uid
                 ?: throw Exception("User ID not found")
 
+            val finalUsername = username.ifEmpty { email.substringBefore("@") }
+
             val user = AppUsers(
                 userId = userId,
                 email = email,
-                username = username
+                username = finalUsername
             )
 
             db.collection("users")

@@ -1,9 +1,6 @@
 - [x] Create implementation plan
 - [x] Get user approval
-- [x] Move Profile Header to Navigation Drawer
-    - [x] Update `gradle/libs.versions.toml` with `drawerlayout`
-    - [x] Update `app/build.gradle.kts` with `androidx-drawerlayout`
-    - [x] Create `nav_header_friend_list.xml`
-    - [x] Modify `activity_friend_list.xml` to add `DrawerLayout` and `Toolbar`
-    - [x] Update `FriendListActivity.kt` to handle drawer logic
-- [x] Verify changes and perform Gradle Sync
+- [x] Move loading state to buttons in `AuthActivity`
+    - [x] Remove `ProgressBar` from `activity_auth.xml`
+    - [x] Update `AuthActivity.kt` to handle button text changes during loading
+- [x] Verify changes
