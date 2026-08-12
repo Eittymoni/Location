@@ -9,4 +9,5 @@
     <color name="greenLight">#E8F5E9</color>        <!-- Opaque Light Mint -->
     <color name="greenAccent">#4CAF50</color>       <!-- Vibrant Green -->
     <color name="textDark">#1E293B</color>          <!-- Dark Slate Gray (High Legibility) -->
+    <color name="greenSoft">#A5D6A7</color>
 </resources>
