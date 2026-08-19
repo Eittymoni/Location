@@ -41,7 +41,8 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:text="Sign In"
-                android:textColor="@color/greenPrimaryDark"
+                android:textColor="@drawable/toggle_text_selector"
+                app:backgroundTint="@drawable/toggle_bg_selector"
                 app:strokeColor="@color/greenPrimary" />
 
             <com.google.android.material.button.MaterialButton
@@ -50,7 +51,8 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:text="Sign Up"
-                android:textColor="@color/greenPrimaryDark"
+                android:textColor="@drawable/toggle_text_selector"
+                app:backgroundTint="@drawable/toggle_bg_selector"
                 app:strokeColor="@color/greenPrimary" />
 
         </com.google.android.material.button.MaterialButtonToggleGroup>
